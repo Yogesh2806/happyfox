@@ -11,7 +11,11 @@ Tree-view resource used - https://github.com/Rodrigobanselmo/react-drag-hierarch
 This is a normal React App
 
 INSTALLATION - npm install
+
+
 RUN - npm run
+
+
 BUILD - npm run build
 
 ## Available Scripts
