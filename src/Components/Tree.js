@@ -38,7 +38,7 @@ const TreeComp = ({ treeRecord }) => {
   const [userData, setUserData] = React.useState(data);
 
   React.useEffect(() => {
-    data && setUserData(data);
+    treeRecord && setUserData(treeRecord);
   }, [treeRecord]);
 
   return (

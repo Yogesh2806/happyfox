@@ -8,13 +8,26 @@ const Sidebar = () => {
   const [clickhigh, setClickHigh] = useState("");
 
   useEffect(() => {
+    let isMounted = true;
     const apiCall = async () => {
-      const response = await fetch("/api/treeData");
-      const data = await response.json();
-      setApiData(data);
-      setRecord(data);
+      try {
+        const response = await fetch("/api/treeData");
+        const data = await response.json();
+        setApiData(data);
+        setRecord(data);
+        if (isMounted) {
+          setApiData(data);
+          setRecord(data);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
     apiCall();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const selectData = ["All", ...apiData.map((item) => item.team)];
